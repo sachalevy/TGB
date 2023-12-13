@@ -1,3 +1,17 @@
+# CPSC 583
+To reproduce the experiments for the final project, setup your environment as follows (make sure you have python 3.9 installed):
+```bash
+python -m venv env/
+source env/bin/activate
+pip install -r requirements.txt
+```
+
+Then run the code to reproduce the experiments:
+```bash
+python examples/nodeproppred/tgbn-trade/al_tgn.py --count 10 --epochs 50 --name "tgbn-trade" --max_samples 50000 --repeats 3
+```
+-------------------------------
+
 <!-- # TGB -->
 ![TGB logo](imgs/logo.png)
 
