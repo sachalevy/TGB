@@ -23,6 +23,10 @@ software/
 *.py[cod]
 *$py.class
 saved_models/
+figs/
+results_fig/
+slurm/
+data/
 
 # C extensions
 *.so

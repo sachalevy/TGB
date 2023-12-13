@@ -19,13 +19,14 @@ from tgb.nodeproppred.evaluate import Evaluator
 from tgb.utils.utils import set_random_seed
 from tgb.utils.stats import plot_curve
 
-parser = argparse.ArgumentParser(description='parsing command line arguments as hyperparameters')
-parser.add_argument('-s', '--seed', type=int, default=1,
-                    help='random seed to use')
+parser = argparse.ArgumentParser(
+    description="parsing command line arguments as hyperparameters"
+)
+parser.add_argument("-s", "--seed", type=int, default=1, help="random seed to use")
 parser.parse_args()
 args = parser.parse_args()
 # setting random seed
-seed = int(args.seed) #1,2,3,4,5
+seed = int(args.seed)  # 1,2,3,4,5
 torch.manual_seed(seed)
 set_random_seed(seed)
 
@@ -298,7 +299,7 @@ def test(loader):
 train_curve = []
 val_curve = []
 test_curve = []
-max_val_score = 0  #find the best test score based on validation score
+max_val_score = 0  # find the best test score based on validation score
 best_test_idx = 0
 for epoch in range(1, epochs + 1):
     start_time = timeit.default_timer()
@@ -308,12 +309,12 @@ for epoch in range(1, epochs + 1):
     print(train_dict)
     train_curve.append(train_dict[eval_metric])
     print("Training takes--- %s seconds ---" % (timeit.default_timer() - start_time))
-    
+
     start_time = timeit.default_timer()
     val_dict = test(val_loader)
     print(val_dict)
     val_curve.append(val_dict[eval_metric])
-    if (val_dict[eval_metric] > max_val_score):
+    if val_dict[eval_metric] > max_val_score:
         max_val_score = val_dict[eval_metric]
         best_test_idx = epoch - 1
     print("Validation takes--- %s seconds ---" % (timeit.default_timer() - start_time))
@@ -335,6 +336,6 @@ plot_curve(test_curve, "test_curve")
 max_test_score = test_curve[best_test_idx]
 print("------------------------------------")
 print("------------------------------------")
-print ("best val score: ", max_val_score)
-print ("best validation epoch   : ", best_test_idx + 1)
-print ("best test score: ", max_test_score)
+print("best val score: ", max_val_score)
+print("best validation epoch   : ", best_test_idx + 1)
+print("best test score: ", max_test_score)

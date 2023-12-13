@@ -98,9 +98,7 @@ source ~/tgb_env/bin/activate
 
 2. install external packages
 ```
-pip install pandas==1.5.3
-pip install matplotlib==3.7.1
-pip install clint==0.5.1
+pip install pandas==1.5.3 matplotlib==3.7.1 clint==0.5.1
 ```
 
 install Pytorch and PyG dependencies (needed to run the examples)
